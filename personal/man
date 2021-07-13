@@ -1,0 +1,8 @@
+# To convert a man page to pdf:
+man -t bash | ps2pdf - bash.pdf
+
+# To view the ascii chart:
+man 7 ascii
+
+# /proc/pid/<name> 文件的功能
+man 5 proc

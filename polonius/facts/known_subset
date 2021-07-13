@@ -1,0 +1,13 @@
+Facts
+T::Origin, T::Origin
+
+These reflect the `'a: 'b` relations that are either declared by the user on function
+declarations or which are inferred via implied bounds.
+For example: `fn foo<'a, 'b: 'a, 'c>(x: &'c &'a u32)` would have two entries:
+- one for the user-supplied subset `'b: 'a`
+- and one for the `'a: 'c` implied bound from the `x` parameter,
+(note that the transitive relation `'b: 'c` is not necessarily included
+explicitly, but rather inferred by polonius).
+
+只在 `subset_error` 中出现
+不是很理解

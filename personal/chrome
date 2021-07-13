@@ -3,3 +3,6 @@ F12 => ctrl+shift+p => Capture full size screenshot
 
 # 选中url输入框
 ctrl+L
+
+# 多线程下载
+chrome://flags/#enable-parallel-downloading

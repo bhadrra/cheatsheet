@@ -1,0 +1,7 @@
+mkdir <clean dir>
+# initialization
+sbt
+
+# scala interactive
+sbt console
+

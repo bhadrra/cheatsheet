@@ -1,0 +1,4 @@
+Facts
+T::Origin
+
+`universal_region(origin)` -- this is a "free region" within fn body

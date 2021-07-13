@@ -103,3 +103,12 @@ cout<<hdp[0][0][0]<<" "<<tdp[0][0][0]<<endl;
 
 cout<<hex<<42<<endl;        // 输出 16 进制
 cout<<oct<<42<<endl;        // 输出 8 进制
+
+for (auto [v, w] : adj[u]) {}
+
+LONG_MAX, LLONG_MAX
+
+# 字符串大小写转换
+transform(s.begin(),s.end(),s.begin(),std::towupper);
+transform(s.begin(),s.end(),s.begin(),std::towlower);
+

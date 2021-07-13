@@ -1,0 +1,5 @@
+Facts
+LivenessContext
+T::Variable, T::Point
+
+`var_defined_at(var, point)` when the variable `var` is overwritten at `point`

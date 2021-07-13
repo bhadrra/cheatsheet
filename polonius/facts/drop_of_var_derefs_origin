@@ -1,0 +1,6 @@
+Facts
+LivenessContext
+T::Variable, T::Origin
+
+`drop_of_var_derefs_origin(var, origin)` when the type of `var` includes
+the `origin` and uses it when dropping

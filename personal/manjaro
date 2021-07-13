@@ -8,3 +8,9 @@ makepkg -si
 # dolphin 中 ssh 文件位置
 /home/lyj/.local/share/remoteview/Everton.desktop
 
+# pacman 的缓存位置
+/var/cache/pacman/pkg
+
+# 更新记录
+/var/log/pacman.log
+

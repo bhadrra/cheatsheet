@@ -19,3 +19,7 @@ docker run -it --rm  \
 
 # device
 docker run -it --device /dev/isgx  samplesgx bash
+
+# 不执行默认的命令，直接进入bash
+docker run -it --entrypoint /bin/bash eesast/overleaf
+

@@ -1,0 +1,9 @@
+Facts
+Borrow checking
+(T::Loan, T::Point)
+
+`loan_killed_at(loan, point)` when some prefix of the path borrowed at `loan`
+is assigned at `point`.
+Indicates that the path borrowed by the `loan` has changed in some way that the loan no
+longer needs to be tracked. (In particular, mutations to the path that was borrowed
+no longer invalidate the loan)

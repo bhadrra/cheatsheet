@@ -1,0 +1,55 @@
+subset(origin1, origin2, point) :-
+  subset_base(origin1, origin2, point).
+
+subset(origin1, origin2, point2) :-
+  subset(origin1, origin2, point1),
+  cfg_edge(point1, point2),
+  origin_live_on_entry(origin1, point2),
+  origin_live_on_entry(origin2, point2).
+
+subset(origin1, origin3, point) :-
+  subset(origin1, origin2, point),
+  subset(origin2, origin3, point).
+
+origin_contains_loan_on_entry(origin,loan,point) :-
+  loan_issued_at(origin,loan,point)
+
+origin_contains_loan_on_entry(origin,loan,point) :-
+  cfg_node(Point),
+  placeholder_loan(Origin, Loan).
+
+origin_contains_loan_on_entry(origin2, loan, point) :-
+  origin_contains_loan_on_entry(origin1, loan, point),
+  subset(origin1, origin2, point).
+
+origin_contains_loan_on_entry(origin, loan, point2) :-
+  origin_contains_loan_on_entry(origin, loan, point1),
+  !loan_killed_at(loan, point1),
+  cfg_edge(point1, point2),
+  origin_live_on_entry(origin, point2).
+
+known_contains(Origin1, Loan1) :-
+  placeholder(Origin1, Loan1).
+
+known_contains(Origin2, Loan1) :-
+  known_contains(Origin1, Loan1),
+  known_subset(Origin1, Origin2).
+
+// TODO strange
+subset_errors(Origin1, Origin2, Point) :-
+  origin_contains_loan_on_entry(Origin2, Loan1, Point),
+  placeholder_origin(Origin2, ()),
+  placeholder_loan(Loan1, Origin1),
+  !known_contains(Origin2, Loan1).
+
+// TODO origin 是死的，但是 origin_contains_loan_on_entry 是活的？
+loan_live_at(loan, point) :-
+  origin_contains_loan_on_entry(origin, loan, point),
+  origin_live_on_entry(origin, point).
+
+errors(loan, point) :-
+  loan_invalidated_at(loan, point),
+  loan_live_at(loan, point).
+
+return errors subset_errors
+

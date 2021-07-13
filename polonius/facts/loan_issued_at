@@ -1,0 +1,9 @@
+Facts
+Borrow checking
+
+T::Origin, T::Loan, T::Point
+
+`loan_issued_at(origin, loan, point)` indicates that the `loan` was "issued"
+at the given `point`, creating a reference with the `origin`.
+Effectively, `origin` may refer to data from `loan` starting at `point` (this is usually
+the point *after* a borrow rvalue).

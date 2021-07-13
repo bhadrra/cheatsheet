@@ -1,0 +1,31 @@
+// compute_live_origin
+var_live_on_entry(var, point) :- var_used_at(var, point)
+
+var_live_on_entry(var, point1) :-
+    var_live_on_entry(var, point2),
+    cfg_edge(point1, point2),
+    !var_defined_at(var, point1).
+
+var_maybe_partly_initialized_on_entry(var, point2) :-
+    var_maybe_partly_initialized_on_exit(var, point1),
+    cfg_edge(point1, point2).
+
+var_drop_live_on_entry(var, point) :-
+    var_dropped_at(var, point),
+    var_maybe_partly_initialized_on_entry(var, point).
+
+var_drop_live_on_entry(Var, SourceNode) :-
+  var_drop_live_on_entry(Var, TargetNode),
+  cfg_edge(SourceNode, TargetNode),
+  !var_defined_at(Var, SourceNode), // TODO why not var_used_at(var,sourcenode)
+  var_maybe_partly_initialized_on_exit(Var, SourceNode).
+
+origin_live_on_entry(origin, point) :-
+  var_drop_live_on_entry(var, point),
+  drop_of_var_derefs_origin(var, origin).
+
+origin_live_on_entry(origin, point) :-
+  var_live_on_entry(var, point),
+  use_of_var_derefs_origin(var, origin).
+
+return origin_live_on_entry

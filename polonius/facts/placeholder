@@ -1,0 +1,8 @@
+Facts
+T::Origin, T::Origin
+
+`placeholder(origin, loan)` describes a placeholder `origin`, with its associated
+placeholder `loan`.
+
+placeholder中的loan不会使用到？
+

@@ -1,0 +1,10 @@
+TESTNAME=<testname-without-dir-or-.rs> cargo uitest
+
+所有的lint都打开
+#![allow(clippy::all, clippy::pedantic, clippy::restriction, clippy::nursery)]
+
+
+#![deny(clippy::all)]
+#![deny(clippy::pedantic)]
+#![deny(clippy::restriction)]
+打开clippy的所有lint

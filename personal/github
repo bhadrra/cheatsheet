@@ -1,0 +1,65 @@
+WIP   
+Work in progress, do not merge yet. 
+开发中
+
+LGTM 
+Looks good to me. 
+Riview 完别人的 PR ，没有问题
+
+SGTM
+Sounds Good To Me
+
+PTAL 
+Please take a look. 
+帮我看下，一般都是请别人 review 自己的 PR
+
+CC 
+Carbon copy 
+一般代表抄送别人的意思
+
+RFC  
+request for comments. 
+我觉得这个想法很好, 我们来一起讨论下
+
+IIRC  
+if I recall correctly. 
+如果我没记错
+
+IIUC  
+if I understand correctly. 
+如果我没理解错
+
+ACK  
+acknowledgement. 
+我确认了或者我接受了,我承认了
+
+NACK/NAK 
+negative acknowledgement. 
+我不同意
+
+FWIW
+for what it’s worth
+当有人将其放在消息的开头或结尾时，这意味着消息中的信息可能对读者不感兴趣，或者发布消息的人不是专家。
+也就是说发件人不确定对方是否真的需要或想要他们发送的信息
+
+IMO/IMHO
+in my opinion
+in my humble opinion
+
+AFAIK
+as far as I know
+
+SSA
+Static single assignment
+
+RN
+right now
+
+TBH
+to be honest
+
+AFK
+away from keyboard
+
+tl;dr
+Too Long Didn't Read

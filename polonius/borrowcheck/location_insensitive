@@ -1,0 +1,16 @@
+origin_contains_loan_on_entry(origin, loan) :-
+  loan_issued_at(origin, loan, _point).
+
+origin_contains_loan_on_entry(origin2, loan) :-
+  origin_contains_loan_on_entry(origin1, loan),
+  subset_base(origin1, origin2, _point).
+
+loan_live_at(loan, point) :-
+  origin_contains_loan_on_entry(origin, loan),
+  origin_live_on_entry(origin, point)
+
+potential_errors(loan, point) :-
+  loan_invalidated_at(loan, point),
+  loan_live_at(loan, point).
+
+return potential_errors

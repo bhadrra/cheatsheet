@@ -29,3 +29,7 @@ do something
 
 # 查看系统字体
 fc-list
+
+# 刷新字体数据库
+sudo fc-cache -fv
+

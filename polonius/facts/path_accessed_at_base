@@ -1,0 +1,12 @@
+Facts
+InitializationContext
+T::Path, T::Point
+
+`path_accessed_at_base(path, point)` when the `path` was accessed at point
+`point`. The same logic as for `initialized_at` and `moved_out_at` applies.
+
+used in:
+initialization stage 1
+
+只有 Mid 有
+

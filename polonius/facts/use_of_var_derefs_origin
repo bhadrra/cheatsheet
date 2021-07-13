@@ -1,0 +1,17 @@
+Facts
+LivenessContext
+T::Variable, T::Origin
+
+`use_of_var_derefs_origin(variable, origin)`: References with the given
+`origin` may be dereferenced when the `variable` is used.
+
+In rustc, we generate this whenever the type of the variable includes the given origin.
+
+任何变量都有可能有Origin,比如 `Vec<&S>` 就有Origin
+`Vec<S>` 没有Origin
+
+有些变量有不止一个Origin
+`_1:&S` 有1个Origin
+`_2:&&S` 有2个Origin
+`_3:&&&S` 有3个Origin
+

@@ -89,3 +89,10 @@ cat /sys/class/power_supply/AC/online
 - vmstat
 - dstat     #  better vmstat
 
+--------------------------------------------------------------
+# tlb
+tlb 大小 4K
+
+# tlb 命中率
+perf stat -e dTLB-loads,dTLB-load-misses,iTLB-loads,iTLB-load-misses -p $PID
+

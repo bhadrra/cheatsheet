@@ -13,3 +13,5 @@ rustup doc
 rustup component add rust-src
 
 rustup toolchain uninstall nightly-2019-12-05-x86_64-unknown-linux-gnu
+
+rustup doc --toolchain nightly-2020-04-20

@@ -1,0 +1,7 @@
+Facts: (T::Point, T::Loan)
+Borrow checking: (T::Loan:,T::Point)
+Output: FxHashMap<T::Point, Vec<T::Loan>>
+
+`loan_invalidated_at(point, loan)` indicates that the `loan` is invalidated by some action
+taking place at `point`; if any origin that references this loan is live, this is an error.
+

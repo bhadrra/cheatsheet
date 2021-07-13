@@ -1,0 +1,7 @@
+Facts
+Borrow checking
+T::Origin, T::Origin, T::Point
+
+`subset_base(origin1, origin2, point)` when we require `origin1@point: origin2@point`.
+Indicates that `origin1 <= origin2` -- i.e., the set of loans in `origin1` are a subset
+of those in `origin2`.

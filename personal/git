@@ -4,8 +4,12 @@ git rm --cached <filename>
 #从缓冲区中移出文件夹
 git rm -r --cached <directory>/     
 
-# 打包成tgz格式,方便scp
+# 打包成tgz格式,不包含.git/
 git archive master | gzip > latest.tgz  
+
+# 打包，包含.git/
+git archive HEAD > tar.tar
+tar -rf tar.tar .git
 
 # stash 单个文件
 git stash -- src/core/services/transactions/index.js 
@@ -56,3 +60,10 @@ git reset HEAD~
 git commit --amend  --signoff
 
 ungit # best git gui
+
+git switch develop
+git switch -d f8c540805b7e16753c65619ca3d7514178353f39
+git switch -c new_branch
+
+git restore -- test.txt
+

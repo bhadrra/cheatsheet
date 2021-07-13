@@ -1,0 +1,15 @@
+Facts
+InitializationContext
+T::Path, T::Point
+
+`path_assigned_at(path, point)` when the `path` was initialized at point
+`point`. This fact is only emitted for a prefix `path`, and not for the
+implicit initialization of all of `path`'s children. E.g. a statement like
+`x.y = 3` at `point` would give the fact `initialized_at(x.y, point)` (but
+neither `initialized_at(x.y.z, point)` nor `initialized_at(x, point)`).
+
+used in :
+initialization stage 1
+
+Start 和 Mid 都有
+

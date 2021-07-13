@@ -46,15 +46,11 @@ rustc +nightly -Zunpretty=hir main.rs
 cargo rustc -- -Z unpretty=hir-tree
 
 # `llvm-bc`, `asm`, `llvm-ir`, `mir`, `obj`, `metadata`, `link`, `dep-info`
-rustc --emit mir foo.rs
+rustc --emit mir main.rs
 cargo rustc -- --emit mir
 ls target/release/deps/<crate_name>-<hash>.mir
 
 RUSTFLAGS="--emit asm" cargo build
-
-# 生成mir对应的.dot 文件
-# 然后转成图片看
-cargo rustc --release  -- -Z dump-mir=all -Z dump-mir-dataflow
 
 # 内存泄露分析
 cargo miri test
@@ -73,3 +69,13 @@ rustc +nightly -Zunpretty=hir file.rs
 
 rustc -Z help
 cargo -Z help
+
+# mir dot
+## if main.rs can be compiled
+rustc -Zunpretty=mir-cfg main.rs > mir-cfg.dot
+## if main.rs can't be compiled
+rustc -Znll-facts -Zdump-mir="all" -Zdump-mir-graphviz  main.rs
+
+# 生成编译时间报告
+cargo b -Ztimings
+

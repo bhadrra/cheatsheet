@@ -1,0 +1,12 @@
+Facts
+InitializationContext
+T::Path, T::Point
+
+`path_moved_at_base(path, point)` when the `path` was moved at `point`. The
+same logic is applied as for `assigned_at` above.
+
+used in
+initialization stage 1
+
+Start 和 Mid 都有
+

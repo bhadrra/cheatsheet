@@ -1,0 +1,6 @@
+Facts
+InitializationContext
+T::Path, T::Path
+
+`child_path(child, parent)` when the path `child` is the direct child of
+`parent`, e.g. `child_path(x.y, x)`, but not `child_path(x.y.z, x)`.

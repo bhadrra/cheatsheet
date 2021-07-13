@@ -1,1 +1,1 @@
-dot -Tpng hello.dot -o hello.png
+dot -Tpng a.dot -o b.png

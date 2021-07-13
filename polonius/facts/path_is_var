@@ -1,0 +1,8 @@
+Facts
+InitializationContext
+T::Path, T::Variable
+
+`path_is_var(path, var)` the root path `path` starting in variable `var`.
+
+used in:
+initialization stage 1

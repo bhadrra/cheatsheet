@@ -1,0 +1,6 @@
+Facts
+LivenessContex
+T::Variable, T::Point
+
+`var_used_at(var, point)` when the variable `var` is used for anything
+but a drop at `point`

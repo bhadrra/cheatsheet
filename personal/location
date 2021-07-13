@@ -17,7 +17,7 @@
 /etc/subgid
                                       
 # nautilus 的脚本位置
-/home/sjtu-lyj/.local/share/nautilus/scripts
+~/.local/share/nautilus/scripts
 
 # systemctl service
 /lib/systemd/system/
@@ -35,7 +35,7 @@
 ~/.config/mpv/input.conf
 
 # cheat config 
-/home/sjtu-lyj/.config/cheat/conf.yml
+~/.config/cheat/conf.yml
 
 /etc/apt/sources.list
 
@@ -69,3 +69,10 @@ cp /etc/X11/xinit/xinitrc ~/.xinitrc
 # firefox bookmark location
 ~/.mozilla/firefox
 search places.sqlite
+
+# yadm
+~/.local/share/yadm/repo.git/
+
+# pacman 的缓存位置
+/var/cache/pacman/pkg
+

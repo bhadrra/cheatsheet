@@ -228,8 +228,3 @@ impl A for B {
 
 let b:Rc<str>="hello".into();
 
-#![deny(clippy::all)]
-#![deny(clippy::pedantic)]
-#![deny(clippy::restriction)]
-打开clippy的所有lint
-

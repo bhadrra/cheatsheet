@@ -1,0 +1,6 @@
+Facts
+Borrow checking
+T::Point, T::Point
+
+`cfg_edge(point1, point2)` for each edge `point1 -> point2` in the control flow
+
