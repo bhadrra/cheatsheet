@@ -1,0 +1,26 @@
+r+ (SHA): Accept a PR. Optionally, the SHA of the last commit in the PR can be provided as a guard against synchronization issues or malicious users. Regardless of the form used, PRs will automatically be unaccepted if the contents are changed.
+r=NAME (SHA): Accept a PR on the behalf of NAME.
+r-: Unacccept a PR.
+p=NUMBER: Set the priority of the accepted PR (defaults to 0).
+rollup: Mark the PR as likely to merge without issue, short for rollup=always
+rollup-: Unmark the PR as rollup.
+rollup=maybe|always|iffy|never: Mark the PR as "always", "maybe", "iffy", and "never" rollup-able.
+squash: Squash all commits into one just before performing the merge.
+squash-: Do not squash commits before merging.
+retry: Signal that the PR is not bad, and should be retried by buildbot.
+try: Request that the PR be tested by buildbot, without accepting it.
+force: Stop all the builds on the configured builders, and proceed to the next PR.
+clean: Clean up the previous build results.
+delegate=NAME: Allow NAME to issue all homu commands for this PR.
+delegate+: Delegate to the PR owner.
+delegate-: Remove the delegatee.
+treeclosed=NUMBER: Any PR below priority NUMBER will not test. Please consider if you really want to do this.
+treeclosed-: Undo a previous treeclosed=NUMBER.
+
+
+@bors r+ p=1
+@bors r+ 123456
+@bors r=barosl rollup
+@bors retry
+@bors try @rust-timer queue: Short-hand for compile-perf benchmarking of PRs.
+
