@@ -1,4 +1,4 @@
-// stage 1
+/* stage 1 */
 ancestor_path(Parent, Child) :- child_path(Child, Parent).
 path_moved_at(Path, Point) :- path_moved_at_base(Path, Point).
 path_assigned_at(Path, Point) :- path_assigned_at_base(Path, Point).
@@ -22,11 +22,11 @@ path_accessed_at(Child, Point) :-
   ancestor_path(Parent, Child).
 
 path_begins_with_var(Child, Var) :-
-  path_begins_with_var(Parent, Var)
+  path_begins_with_var(Parent, Var),
   ancestor_path(Parent, Child).
 
 
-// stage 2
+/* stage 2 */
 path_maybe_initialized_on_exit(path, point) :- path_assigned_at(path, point).
 
 path_maybe_initialized_on_exit(path, point2) :-
@@ -41,10 +41,10 @@ path_maybe_uninitialized_on_exit(path, point2) :-
     cfg_edge(point1, point2),
     !path_assigned_at(path, point2).
 
-// TODO
-// move_error(Path, TargetNode) :- 
-//    path_maybe_uninitialized_on_exit(Path, TargetNode), 
-//    path_accessed_at(Path, TargetNode).
+/* TODO
+ move_error(Path, TargetNode) :- 
+    path_maybe_uninitialized_on_exit(Path, TargetNode), 
+    path_accessed_at(Path, TargetNode). */
 move_error(Path, TargetNode) :-
   path_maybe_uninitialized_on_exit(Path, SourceNode),
   cfg_edge(SourceNode, TargetNode),
@@ -54,10 +54,11 @@ var_maybe_partly_initialized_on_exit(var, point) :-
     path_maybe_initialized_on_exit(path, point),
     path_begins_with_var(path, var).
 
+/*
 return move_error, var_maybe_partly_initialized_on_exit
 
 var_maybe_partly_initialized_on_exit, var_maybe_partly_uninitialized_on_exit 之所以是maybe,因为在同一点可能既是
 var_maybe_partly_initialized_on_exit, 又是 var_maybe_partly_uninitialized_on_exit 
 
 因为从两个分支过来的
-
+*/
