@@ -71,9 +71,10 @@ rustc -Z help
 cargo -Z help
 
 # mir dot
-## if main.rs can be compiled
+# if main.rs can be compiled
 rustc -Zunpretty=mir-cfg main.rs > mir-cfg.dot
-## if main.rs can't be compiled
+# if main.rs can't be compiled
+# debug polonius, use this
 rustc -Znll-facts -Zdump-mir="all" -Zdump-mir-graphviz  main.rs
 
 # 生成编译时间报告

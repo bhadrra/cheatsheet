@@ -1,5 +1,5 @@
 // compute_live_origin
-var_live_on_entry(var, point) :- var_used_at(var, point)
+var_live_on_entry(var, point) :- var_used_at(var, point).
 
 var_live_on_entry(var, point1) :-
     var_live_on_entry(var, point2),

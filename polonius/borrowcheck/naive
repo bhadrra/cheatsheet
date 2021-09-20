@@ -12,7 +12,7 @@ subset(origin1, origin3, point) :-
   subset(origin2, origin3, point).
 
 origin_contains_loan_on_entry(origin,loan,point) :-
-  loan_issued_at(origin,loan,point)
+  loan_issued_at(origin,loan,point).
 
 origin_contains_loan_on_entry(origin,loan,point) :-
   cfg_node(Point),

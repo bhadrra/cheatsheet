@@ -7,7 +7,7 @@ origin_contains_loan_on_entry(origin2, loan) :-
 
 loan_live_at(loan, point) :-
   origin_contains_loan_on_entry(origin, loan),
-  origin_live_on_entry(origin, point)
+  origin_live_on_entry(origin, point).
 
 potential_errors(loan, point) :-
   loan_invalidated_at(loan, point),
