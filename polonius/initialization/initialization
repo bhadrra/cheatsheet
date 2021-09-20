@@ -32,14 +32,14 @@ path_maybe_initialized_on_exit(path, point) :- path_assigned_at(path, point).
 path_maybe_initialized_on_exit(path, point2) :-
     path_maybe_initialized_on_exit(path, point1),
     cfg_edge(point1, point2),
-    !path_moved_at(path, point2).
+    \+ path_moved_at(path, point2).
 
 path_maybe_uninitialized_on_exit(path, point) :- path_moved_at(path, point).
 
 path_maybe_uninitialized_on_exit(path, point2) :-
     path_maybe_uninitialized_on_exit(path, point1),
     cfg_edge(point1, point2),
-    !path_assigned_at(path, point2).
+    \+ path_assigned_at(path, point2).
 
 /* TODO
  move_error(Path, TargetNode) :- 

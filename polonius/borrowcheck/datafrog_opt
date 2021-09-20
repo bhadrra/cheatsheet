@@ -1,6 +1,6 @@
 dead_borrow_region_can_reach_root((origin, point), loan) :-
   loan_issued_at(origin, loan, point),
-  !origin_live_on_entry(origin, point).
+  \+ origin_live_on_entry(origin, point).
 
 dead_borrow_region_can_reach_dead((origin, point), loan) :-
   dead_borrow_region_can_reach_root((origin, point), loan).
@@ -8,19 +8,19 @@ dead_borrow_region_can_reach_dead((origin, point), loan) :-
 dead_borrow_region_can_reach_dead((origin2, point), loan) :-
   dead_borrow_region_can_reach_dead(origin1, loan, point),
   subset(origin1, origin2, point),
-  !origin_live_on_entry(origin2, point).
+  \+ origin_live_on_entry(origin2, point).
 
 dying_region_requires(origin, point1, point2, loan) :-
   origin_contains_loan_on_entry(origin, loan, point1),
-  !loan_killed_at(loan, point1),
+  \+ loan_killed_at(loan, point1),
   cfg_edge(point1, point2),
-  !origin_live_on_entry(origin, point2).
+  \+ origin_live_on_entry(origin, point2).
 
 live_to_dying_regions(origin1, origin2, point1, point2) :-
   subset(origin1, origin2, point1),
   cfg_edge(point1, point2),
   origin_live_on_entry(origin1, point2),
-  !origin_live_on_entry(origin2, point2).
+  \+ origin_live_on_entry(origin2, point2).
 
 dying_can_reach_origins(origin2, point1, point2) :-
   live_to_dying_regions(_origin1, origin2, point1, point2).
@@ -34,7 +34,7 @@ dying_can_reach(origin1, origin2, point1, point2) :-
 
 dying_can_reach(origin1, origin3, point1, point2) :-
   dying_can_reach(origin1, origin2, point1, point2),
-  !origin_live_on_entry(origin2, point2),
+  \+ origin_live_on_entry(origin2, point2),
   subset(origin2, origin3, point1).
 
 dying_can_reach_live(origin1, origin2, point1, point2) :-
@@ -59,7 +59,7 @@ origin_contains_loan_on_entry(origin, loan, point) :-
 
 origin_contains_loan_on_entry(origin, loan, point2) :-
   origin_contains_loan_on_entry(origin, loan, point1),
-  !loan_killed_at(loan, point1),
+  \+ loan_killed_at(loan, point1),
   cfg_edge(point1, point2),
   origin_live_on_entry(origin, point2).
 
@@ -80,4 +80,4 @@ errors(loan, point) :-
   loan_invalidated_at(loan, point),
   loan_live_at(loan, point).
 
-return errors
+/* return errors */
