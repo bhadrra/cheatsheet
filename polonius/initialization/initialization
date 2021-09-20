@@ -1,29 +1,29 @@
 /* stage 1 */
-ancestor_path(Parent, Child) :- child_path(Child, Parent).
-path_moved_at(Path, Point) :- path_moved_at_base(Path, Point).
-path_assigned_at(Path, Point) :- path_assigned_at_base(Path, Point).
-path_accessed_at(Path, Point) :- path_accessed_at_base(Path, Point).
-path_begins_with_var(Path, Var) :- path_is_var(Path, Var).
+ancestor_path(parent, child) :- child_path(child, parent).
+path_moved_at(path, point) :- path_moved_at_base(path, point).
+path_assigned_at(path, point) :- path_assigned_at_base(path, point).
+path_accessed_at(path, point) :- path_accessed_at_base(path, point).
+path_begins_with_var(path, var) :- path_is_var(path, var).
 
-ancestor_path(Grandparent, Child) :-
-   ancestor_path(Parent, Child),
-   child_path(Parent, Grandparent).
+ancestor_path(grandparent, child) :-
+   ancestor_path(parent, child),
+   child_path(parent, grandparent).
 
-path_moved_at(Child, Point) :-
-    path_moved_at(Parent, Point),
-    ancestor_path(Parent, Child).
+path_moved_at(child, point) :-
+    path_moved_at(parent, point),
+    ancestor_path(parent, child).
 
-path_assigned_at(Child, Point) :-
-    path_assigned_at(Parent, Point),
-    ancestor_path(Parent, Child).
+path_assigned_at(child, point) :-
+    path_assigned_at(parent, point),
+    ancestor_path(parent, child).
 
-path_accessed_at(Child, Point) :-
-  path_accessed_at(Parent, Point),
-  ancestor_path(Parent, Child).
+path_accessed_at(child, point) :-
+  path_accessed_at(parent, point),
+  ancestor_path(parent, child).
 
-path_begins_with_var(Child, Var) :-
-  path_begins_with_var(Parent, Var),
-  ancestor_path(Parent, Child).
+path_begins_with_var(child, var) :-
+  path_begins_with_var(parent, var),
+  ancestor_path(parent, child).
 
 
 /* stage 2 */
@@ -41,14 +41,14 @@ path_maybe_uninitialized_on_exit(path, point2) :-
     cfg_edge(point1, point2),
     \+ path_assigned_at(path, point2).
 
-/* TODO
- move_error(Path, TargetNode) :- 
-    path_maybe_uninitialized_on_exit(Path, TargetNode), 
-    path_accessed_at(Path, TargetNode). */
-move_error(Path, TargetNode) :-
-  path_maybe_uninitialized_on_exit(Path, SourceNode),
-  cfg_edge(SourceNode, TargetNode),
-  path_accessed_at(Path, TargetNode).
+/* todo
+ move_error(path, targetnode) :- 
+    path_maybe_uninitialized_on_exit(path, targetnode), 
+    path_accessed_at(path, targetnode). */
+move_error(path, targetnode) :-
+  path_maybe_uninitialized_on_exit(path, sourcenode),
+  cfg_edge(sourcenode, targetnode),
+  path_accessed_at(path, targetnode).
 
 var_maybe_partly_initialized_on_exit(var, point) :-
     path_maybe_initialized_on_exit(path, point),

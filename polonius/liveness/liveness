@@ -14,11 +14,11 @@ var_drop_live_on_entry(var, point) :-
     var_dropped_at(var, point),
     var_maybe_partly_initialized_on_entry(var, point).
 
-var_drop_live_on_entry(Var, SourceNode) :-
-  var_drop_live_on_entry(Var, TargetNode),
-  cfg_edge(SourceNode, TargetNode),
-  \+ var_defined_at(Var, SourceNode), /* TODO why not var_used_at(var,sourcenode) */
-  var_maybe_partly_initialized_on_exit(Var, SourceNode).
+var_drop_live_on_entry(var, sourcenode) :-
+  var_drop_live_on_entry(var, targetnode),
+  cfg_edge(sourcenode, targetnode),
+  \+ var_defined_at(var, sourcenode), /* todo why not var_used_at(var,sourcenode) */
+  var_maybe_partly_initialized_on_exit(var, sourcenode).
 
 origin_live_on_entry(origin, point) :-
   var_drop_live_on_entry(var, point),
