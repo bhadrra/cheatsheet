@@ -1,0 +1,8 @@
+polonius -a DatafrogOpt --graphviz-file datafrogopt.dot .
+
+polonius -a Naive --graphviz-file naive.dot .
+
+polonius -a DatafrogOpt -v --show-tuples . > log
+
+polonius -a Naive -v --show-tuples . > log
+
