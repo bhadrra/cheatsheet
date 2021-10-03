@@ -1,0 +1,14 @@
+call by value就是在把参数传入函数之前，要先对参数进行计算。
+
+如果call by value终止了，那么同样的的表达式的call by name也会终止
+但反过来是不对的
+
+可以利用语法（=>）来强制变成call by name,
+def constOne(x: Int, y:=> Int) = 1
+
+val: eager evaluation
+def: lazy evaluation
+def 直接理解成函数。函数不会在定义时执行。
+
+call by name，如果传过来一个val,那么和call by value效果一样。
+

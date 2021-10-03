@@ -41,10 +41,10 @@ path_maybe_uninitialized_on_exit(path, point2) :-
     cfg_edge(point1, point2),
     \+ path_assigned_at(path, point2).
 
-/* todo
- move_error(path, targetnode) :- 
-    path_maybe_uninitialized_on_exit(path, targetnode), 
-    path_accessed_at(path, targetnode). */
+move_error(path, targetnode) :- 
+  path_maybe_uninitialized_on_exit(path, targetnode), 
+  path_accessed_at(path, targetnode). 
+
 move_error(path, targetnode) :-
   path_maybe_uninitialized_on_exit(path, sourcenode),
   cfg_edge(sourcenode, targetnode),
@@ -54,11 +54,8 @@ var_maybe_partly_initialized_on_exit(var, point) :-
     path_maybe_initialized_on_exit(path, point),
     path_begins_with_var(path, var).
 
-/*
 return move_error, var_maybe_partly_initialized_on_exit
 
 var_maybe_partly_initialized_on_exit, var_maybe_partly_uninitialized_on_exit 之所以是maybe,因为在同一点可能既是
 var_maybe_partly_initialized_on_exit, 又是 var_maybe_partly_uninitialized_on_exit 
 
-因为从两个分支过来的
-*/

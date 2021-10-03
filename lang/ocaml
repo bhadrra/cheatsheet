@@ -1,0 +1,8 @@
+let a=1;;
+1+2;;
+
+let double = function  x -> x*2;;
+let double x = x*2;;
+
+( + ) 1 1 ;;
+

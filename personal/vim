@@ -30,7 +30,12 @@ U          # 恢复一整行
 :undolist
 :undo
 
-set invlist  # 显示不可见字符
+# 显示不可见字符
+set invlist  
+# 取消行号
+set nonumber 
+# 取消相对行号
+set norelativenumber
 
 #把单词间的 空格删除
 #注意\zs \ze的使用

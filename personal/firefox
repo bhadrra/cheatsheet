@@ -1,1 +1,5 @@
 about:config
+
+# firefox bookmark location
+~/.mozilla/firefox
+search places.sqlite
