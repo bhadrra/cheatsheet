@@ -12,3 +12,19 @@ def 直接理解成函数。函数不会在定义时执行。
 
 call by name，如果传过来一个val,那么和call by value效果一样。
 
+call by name/ call by value 指的是函数对于参数的要求。
+要求参数立即运算就要call by value,
+要求延迟运算就call by name
+对于传进来的是val 还是 lazy, 并不是call by name/call by value关心的。
+
+lazy val: call by need
+全局的指计算一遍。
+lazy val 可以当作和val 一样。
+但不是所有的val都能替换成lazy val，因为有环境变量的捕获。
+
+trait 和 abstract class 有同样的功能。
+class 运行时开销小，
+trait 开销大，但是推荐使用
+
+a class can only have one super class
+
