@@ -20,6 +20,9 @@ vmstat    #  column r > CPU count
 sar -q    #  runq-sz > CPU count
 dstat     #  better vmstat
 
+lscpu
+# sgx, huge page
+cpuid
 -------------------------------------------------------------------------------
 
 # Memory
