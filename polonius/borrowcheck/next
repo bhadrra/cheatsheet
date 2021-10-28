@@ -1,0 +1,37 @@
+subset(O1, O2, N2) :- // Introduced by predecessor
+  cfg_edge(N1, N2),
+  introduce_subset(O1, O2, N1)
+
+subset(O1, O2, N2) :- // Carried over from predecessor
+  cfg_edge(N1, N2),
+  subset(O1, O2, N1),
+  !clear_origin(O1, N1),
+  !clear_origin(O2, N1).
+
+subset(O1, O3, N1) :- // Transitive closure
+  subset(O1, O2, N1),
+  subset(O2, O3, N1).
+
+loan_in_origin(L, O, N2) :- // Introduced by predecessor
+  cfg_edge(N1, N2),
+  introduce_loan(L, O, N1)
+
+loan_in_origin(L, O, N2) :- // Carried over from predecessor
+  cfg_edge(N1, N2),
+  loan_in_origin(L, O, N1),
+  !clear_loan(L, N1),
+  !clear_origin(O, N1),
+  !invalidate_loan(L, N1).
+
+loan_in_origin(L, O2, N) :- // Transitive closure
+  subset(O1, O2, N),
+  loan_in_origin(L, O1, N).
+
+origin_invalidated(O, N2) :- // Introduced by predecessor
+  cfg_edge(N1, N2),
+  loan_in_origin(L, O, N1),
+  invalidate_loan(L, N1).
+
+invalidated_origin_accessed(O, N) :- // Introduced by predecessor
+  access(O, N),
+  origin_invalidated(O, N).
