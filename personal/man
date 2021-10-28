@@ -6,3 +6,5 @@ man 7 ascii
 
 # /proc/pid/<name> 文件的功能
 man 5 proc
+
+man tcl
