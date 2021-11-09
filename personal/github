@@ -49,9 +49,6 @@ in my humble opinion
 AFAIK
 as far as I know
 
-SSA
-Static single assignment
-
 RN
 right now
 
@@ -63,3 +60,13 @@ away from keyboard
 
 tl;dr
 Too Long Didn't Read
+
+FP
+false positive
+
+SSA
+Static single assignment
+
+SSSP
+单源最短路算法
+
