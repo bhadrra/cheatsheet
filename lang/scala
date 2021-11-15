@@ -28,3 +28,9 @@ trait 开销大，但是推荐使用
 
 a class can only have one super class
 
+
+The Sieve of Eratosthenes
+def sieve(s: Stream[Int]): Stream[Int] = 
+   s.head #:: sieve(s.tail filter (_ % s.head !=0 ))
+
+val primes = sieve(from(2))
