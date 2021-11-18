@@ -1,0 +1,8 @@
+aya -i 
+
+
+:l <filename>
+<function>
+:t <function>
+
+open <module name>
