@@ -1,3 +1,8 @@
 day-to-day Rust developer
 
 => double arrow
+
+|- turnstile
+antecedent |-  succedent
+J1 through Jn entail J,
+
