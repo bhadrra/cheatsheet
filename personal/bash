@@ -70,3 +70,6 @@ smartdraw
 # similar to nvm
 # written in Rust
 fnm 
+
+# 逻辑cpu数，而非核心数或插槽数
+nproc
