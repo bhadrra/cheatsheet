@@ -1,0 +1,3 @@
+stack ghci    
+
+stack install Cabal
