@@ -24,9 +24,6 @@ cargo vendor
 cargo clippy
 cargo clippy -V
 
-# expand macro
-cargo expand
-
 cargo install --path .
 
 # call me when finished
@@ -79,4 +76,6 @@ rustc -Znll-facts -Zdump-mir="all" -Zdump-mir-graphviz  main.rs
 
 # 生成编译时间报告
 cargo b -Ztimings
+
+cargo install-update  -a
 
