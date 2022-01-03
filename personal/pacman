@@ -4,6 +4,9 @@ tags: [ packaging ]
 
 https://wiki.archlinux.org/index.php/Pacman/Rosetta#Verification_and_repair
 
+# reinstall all packages
+sudo pacman -Syu $(pacman -Qqen)
+
 # To get information about package:
 sudo pacman -Si <package>...
 
